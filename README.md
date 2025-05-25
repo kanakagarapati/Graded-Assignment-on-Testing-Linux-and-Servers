@@ -1,6 +1,6 @@
 # Graded-Assignment-on-Testing-Linux-and-Servers
 
-## Task 1
+## Task 1 System Monitoring Setup
 
 Run `sudo apt update`
 <p align="left">
@@ -76,7 +76,7 @@ selected option 1
 <img width="585" alt="image" src="https://github.com/user-attachments/assets/1085e6f0-09bb-48ef-aa26-6e8c697bdd56" />
 </p>
 
-## Task 2
+## Task 2 User Management and Access Control
 Run `sudo apt update` </b>
 <p align="left">
 <img width="452" alt="image" src="https://github.com/user-attachments/assets/2d0d2ecc-fa3d-4cc1-97a2-bb0f3f9849d8" />
@@ -155,7 +155,7 @@ Run `cat /etc/passwd`
 <img width="1076" alt="image" src="https://github.com/user-attachments/assets/0e94ba8d-8a85-4816-b00a-99ccd9c48779" />
 </p>
 
-## Task 3
+## Task 3 Backup Configuration for Web Servers
 Run below commands to create automatic backup for SARAH. </br>
 
 ```
