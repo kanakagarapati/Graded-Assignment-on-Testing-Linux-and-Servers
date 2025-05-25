@@ -133,7 +133,8 @@ sudo apt install libpam-pwquality
 </p>
 
 <p align="center">
-<img width="704" alt="https://github.com/user-attachments/assets/df85fcea-da63-437e-bb12-bfc1bb408dbe"/>
+<img width="704" alt="https://github.com/user-attachments/assets/3a8e887a-65aa-4fbe-b262-d1df09369737"/>
+
 </p>
 
 
