@@ -155,13 +155,130 @@ Run `cat /etc/passwd`
 <img width="1076" alt="image" src="https://github.com/user-attachments/assets/0e94ba8d-8a85-4816-b00a-99ccd9c48779" />
 </p>
 
-
-
-
-
-
-
 ## Task 3
+Run below commands to create automatic backup for SARAH. </br>
+
+```
+sudo mkdir -p /backups
+sudo chmod 700 / backups 
+sudo nano /home/sarah/apache_backup.sh
+```
+
+Add below code in apache_backup.sh file  </br>
+
+```
+#!/bin/bash
+# Backup Apache file
+DATE=$(date +%F)
+BACKUP_FILE="/backups/apache_backup_${DATE}.tar.gz"
+LOG_FILE="/backups/apache_backup_${DATE}.10g"
+# Create backup
+tar -czf "$BACKUP_FILE" /etc/httpd/ /var/www/html/ 2>> "$LOG_FILE"
+# Verify backup
+{
+echo "Backup verification for Apache - $DATE" echo "Contents of $BACKUP_FILE:"
+tar -tzf "$BACKUP_FILE"
+} > "$LOG_FILE" 2>&1
+```
+
+Run `sudo cat /home/sarah/apache_backup.sh` to validate script file.</br>
+<p align="left">
+<img width="889" alt="image" src="https://github.com/user-attachments/assets/8a07d883-61d2-48c3-9ba8-8b5bce762cff"/>
+</p>
+
+Run below commands to make sh file as executable and add cron scheduler</br>
+
+```
+sudo chmod +x /home/sarah/apache_backup.sh
+sudo crontab -u sarah -e
+```
+
+<p align="left">
+<img width="954" alt="image" src="https://github.com/user-attachments/assets/4b9ffbcc-6491-485b-8f1d-470f354453e5" />
+<img width="890" alt="image" src="https://github.com/user-attachments/assets/4068b1a4-d4dd-484f-b991-af9f9774ecf9" />
+</p>
+
+Now creating backup for Mike to backup Nginx files </br>
+<p align="left">
+<img width="1109" alt="image" src="https://github.com/user-attachments/assets/db93957e-dfd1-47c3-bce9-059e502a0bf7" />
+</p>
+
+below is the code </br>
+
+```
+#!/bin/bash
+# Backup Nginx files for Mike
+
+DATE=$(date +%F)
+BACKUP_FILE="/backups/nginx_backup_${DATE}.tar.gz"
+LOG_FILE="/backups/nginx_backup_${DATE}.log"
+
+# Create backup
+tar -czf "$BACKUP_FILE" /etc/nginx/ /usr/share/nginx/html/ 2>> "$LOG_FILE"
+
+# Verify backup
+{
+  echo "Backup verification for Nginx - $DATE"
+  echo "Contents of $BACKUP_FILE:"
+  tar -tzf "$BACKUP_FILE"
+} >> "$LOG_FILE" 2>&1
+```
+
+validate script </br>
+<p align="left">
+<img width="411" alt="image" src="https://github.com/user-attachments/assets/4abc4155-bafe-450c-b595-18d0e39b066f" />
+</p>
+
+Run Below commands to make it executable file and set cron scheduler </br>
+
+```
+sudo chmod +x /home/mike/nginx_backup.sh
+sudo crontab -u mike -e
+```
+
+<p align="left">
+<img width="805" alt="image" src="https://github.com/user-attachments/assets/34df5393-35f0-48db-a676-9faa4e604206" />
+</p>
+
+checking backups </br>
+<p align="left">
+<img width="452" alt="image" src="https://github.com/user-attachments/assets/ac5d3868-b6c9-4e57-a882-6d5db2296cd6" />
+</p>
+<p align="left">
+<img width="452" alt="image" src="https://github.com/user-attachments/assets/6eac8a03-168f-40af-94bd-86318165f489" />
+</p>
+
+Ran below commands</br>
+
+```
+cd ..
+ls
+cd backups
+ls -ld /backups
+ls -l /backups
+sudo chmod 755 /backups
+cd backups
+ls
+````
+
+Back Results for SARAH</br>
+<p align="left">
+<img width="452" alt="image" src="https://github.com/user-attachments/assets/cf2d08d7-4355-4ee2-8770-889396f61ae8" />
+</p>
+Back Results for MIKE</br>
+<p align="left">
+<img width="452" alt="image" src="https://github.com/user-attachments/assets/218c7ed8-b5e8-46b6-9a22-c6202f9a3f61" />
+</p>
+
+
+
+
+
+
+
+
+
+
 
 
 
